@@ -11,23 +11,17 @@ int limite(char *x) {
     return valor;
 }
 
-void crescente(int x, int y) {
-    if ( x == y) {
+void ordenar(int x, int y) {
+    if (x <= y) {
+        printf("%d, ", x);
+        ordenar(x + 1, y);
+    
+    if (x > 1) {
         printf("%d, ", x);
     }
-    else {
-        crescente(x - 1, y);
-        printf("%d, ", x);
+    else if (x == 1) {
+        printf("%d", x);
     }
-}
-
-void decrescente(int x, int y) {
-    if ( x == y) {
-        printf("%d, ", x);
-    }
-    else {
-        printf("%d, ", x);
-        decrescente(x - 1, y);
     }
 }
 
@@ -36,8 +30,7 @@ int main() {
     intro();
     int inferior = limite("inferior");
     int superior = limite("superior");
-    crescente(superior, inferior);
-    decrescente(superior, inferior);
+    ordenar(inferior, superior);
 
     return 0;
 }
